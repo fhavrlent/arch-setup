@@ -1,0 +1,10 @@
+keybase-bin
+mullvad-vpn-bin
+plasma5-applets-virtual-desktop-bar-git
+snapd
+timeshift
+ttf-iosevka-term
+ttf-mplus
+ulauncher
+visual-studio-code-bin
+yay
