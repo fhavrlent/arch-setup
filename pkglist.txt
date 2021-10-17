@@ -1,3 +1,4 @@
+age
 amd-ucode
 apparmor
 ark
@@ -60,6 +61,7 @@ plasma-nm
 plasma-pa
 sddm
 sed
+spectacle
 steam
 sudo
 texinfo
@@ -75,7 +77,6 @@ ttf-fira-code
 ttf-indic-otf
 ttf-roboto
 ufw
-vim
 vlc
 wget
 which
