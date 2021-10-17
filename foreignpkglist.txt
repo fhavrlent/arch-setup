@@ -1,9 +1,0 @@
-keybase-bin
-mullvad-vpn-bin
-snapd
-timeshift
-ttf-iosevka-term
-ttf-mplus
-ulauncher
-visual-studio-code-bin
-yay
