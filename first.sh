@@ -1,7 +1,5 @@
 #!/bin/bash
 
-
-
 # Format partition nvme0n1p1 to FAT32
 mkfs.fat -F32 /dev/nvme0n1p1
 
