@@ -1,3 +1,4 @@
+#!/bin/bash
 ln -sf /usr/share/zoneinfo/Europe/Bratislava /etc/localtime
 hwclock --systohc
 
@@ -51,7 +52,7 @@ read USRNAME
 useradd -m -g users -G wheel $USRNAME
 echo "Enter password"
 read PASSWD
-passwd $PASSWD
+passwd $USRNAME $PASSWD
 
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 
@@ -64,6 +65,24 @@ echo "swapfile none swap sw 0 0" | tee -a /etc/fstab
 swapon -a
 
 pacman -S amd-ucode nvidia nvidia-lts xorg
+
+echo "KDE[1], GNOME[2] or XFCE[3]"
+read DESELECT
+if [ "$DESELECT" -eq 1  ]; then
+    pacman -S plasma-desktop sddm plasma-nm plasma-pa dolphin kdeplasma-addons
+    systemctl enable sddm
+    elif [ "$DESELECT" -eq 2 ]; then
+    pacman -S gnome
+    systemctl enable gdm.service
+    elif [ "$DESELECT" -eq 3 ]; then
+    pacman -S xfce4 xfce4-goodies lightdm lightdm-gtk-greeter
+    systemctl enable lightdm
+else
+    echo "No DE selected"
+fi
+
+pacman -S firefox tilix
+pacman -S pipewire pipewire-pulse pipewire-alsa pipewire-jack
 
 echo "
 umount /mnt
