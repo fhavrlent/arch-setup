@@ -25,7 +25,7 @@ mount /dev/vol1/root /mnt
 mkdir /mnt/home
 mount /dev/vol2/home /mnt/home
 mkdir /mnt/boot
-mount /dev/nvme0n1p1
+mount /dev/nvme0n1p1 /mnt/boot
 
 pacstrap -i /mnt base base-devel linux linux-headers linux-lts linux-lts-headers linux-firmware lvm2 nano wget
 
