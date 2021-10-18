@@ -1,6 +1,43 @@
 # Arch linux install script
 
 This script is specific for my HW setup. Do not use it without editing it to suit your needs.
+Manual steps
+```
+# Update system clock
+timedatectl set-ntp true
+
+# Create 1 EFI system partition and 1 LVM partition on nvme0n1
+
+
+fdisk /dev/nvme0n1
+g
+n
+
+
++512M
+t
+1
+n
+
+
+
+t
+
+30
+w
+
+
+# Create 1 LVM partition on nvme1n1
+fdisk /dev/nvme1n1
+g
+n
+
+
+
+t
+w
+
+```
 
 First run
 ```
