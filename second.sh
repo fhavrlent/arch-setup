@@ -34,14 +34,14 @@ mkinitcpio -p linux
 mkinitcpio -p linux-lts
 
 bootctl --path=/boot/ install
-echo "default arc
+echo "default arch
 timeout 3
 editor 0" >> /boot/loader/loader.conf
 
 echo "title Arch Linux
-linux /vmlinuz-linux-lts
-initrd /initramfs-linux-lts.img
-options root=/dev/vol1/root quiet rw" > /boot/loader/entries/arch.conf
+linux /vmlinuz-linux
+initrd /initramfs-linux.img
+options root=/dev/vol1/root lsm=landlock,lockdown,yama,apparmor,bpf quiet rw" > /boot/loader/entries/arch.conf
 
 passwd
 
@@ -64,7 +64,7 @@ pacman -S amd-ucode nvidia nvidia-lts xorg
 echo "KDE[1], GNOME[2] or XFCE[3]"
 read DESELECT
 if [ "$DESELECT" -eq 1  ]; then
-    pacman -S plasma-desktop sddm plasma-nm plasma-pa dolphin kdeplasma-addons
+    pacman -S plasma-desktop sddm plasma-nm plasma-pa dolphin kdeplasma-addons plasma xdg-user-dirs packagekit-qt5
     systemctl enable sddm
     elif [ "$DESELECT" -eq 2 ]; then
     pacman -S gnome
@@ -78,6 +78,7 @@ fi
 
 pacman -S firefox tilix
 pacman -S pipewire pipewire-pulse pipewire-alsa pipewire-jack
+pacman -S apparmor ufw gufw
 
 echo "
 umount /mnt
