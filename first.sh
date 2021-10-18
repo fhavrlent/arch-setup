@@ -4,8 +4,9 @@
 timedatectl set-ntp true
 
 # Create 1 EFI system partition and 1 LVM partition on nvme0n1
-wipefs --all --force /dev/nvme0n1
-wipefs --all --force /dev/nvme1n1
+
+nvme format -s1 /dev/nvme0n1
+nvme format -s1 /dev/nvme1n1
 fdisk /dev/nvme0n1 <<EEOF
 g
 n
