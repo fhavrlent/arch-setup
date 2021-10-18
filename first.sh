@@ -24,7 +24,7 @@ t
 30
 w
 EEOF
-exit 0
+
 
 # Create 1 LVM partition on nvme1n1
 fdisk /dev/nvme1n1 <<EEOF
@@ -36,7 +36,7 @@ n
 t
 w
 EEOF
-exit 0
+
 
 # Format partition nvme0n1p1 to FAT32
 mkfs.fat -F32 /dev/nvme0n1p1
