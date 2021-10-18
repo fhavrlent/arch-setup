@@ -43,19 +43,14 @@ linux /vmlinuz-linux-lts
 initrd /initramfs-linux-lts.img
 options root=/dev/vol1/root quiet rw" > /boot/loader/entries/arch.conf
 
-echo "Enter root password"
-read ROOT_PSWD
-passwd $ROOT_PSWD
+passwd
 
 echo "Enter username"
 read USRNAME
 useradd -m -g users -G wheel $USRNAME
-echo "Enter password"
-read PASSWD
-passwd $USRNAME $PASSWD
+passwd $USRNAME
 
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
-
 
 dd if=/dev/zero of=/swapfile bs=1M count=SIZE status=progress
 chmod 600 /swapfile
