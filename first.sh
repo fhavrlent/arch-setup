@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 # Update system clock
 timedatectl set-ntp true
 
