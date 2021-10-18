@@ -68,5 +68,3 @@ genfstab -U /mnt >> /mnt/etc/fstab
 pacstrap -i /mnt base base-devel linux linux-headers linux-lts linux-lts-headers linux-firmware lvm2 nano wget
 
 arch-chroot /mnt
-
-echo "KEKW"
