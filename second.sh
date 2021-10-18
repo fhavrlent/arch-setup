@@ -52,7 +52,7 @@ passwd $USRNAME
 
 echo "%wheel ALL=(ALL) ALL" >> /etc/sudoers
 
-dd if=/dev/zero of=/swapfile bs=1M count=SIZE status=progress
+dd if=/dev/zero of=/swapfile bs=1M count=8192 status=progress
 chmod 600 /swapfile
 mkswap /swapfile
 cp /etc/fstab /etc/fstab.bak
