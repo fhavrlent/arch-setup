@@ -59,7 +59,7 @@ cp /etc/fstab /etc/fstab.bak
 echo "swapfile none swap sw 0 0" | tee -a /etc/fstab
 swapon -a
 
-pacman -S amd-ucode nvidia nvidia-lts xorg
+pacman -S amd-ucode nvidia nvidia-lts
 
 echo "KDE[1], GNOME[2] or XFCE[3]"
 read DESELECT
