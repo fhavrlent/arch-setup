@@ -59,15 +59,15 @@ cp /etc/fstab /etc/fstab.bak
 echo "swapfile none swap sw 0 0" | tee -a /etc/fstab
 swapon -a
 
-pacman -S amd-ucode nvidia nvidia-lts
+pacman -S amd-ucode nvidia nvidia-lts xdg-user-dirs
 
 echo "KDE[1], GNOME[2] or XFCE[3]"
 read DESELECT
 if [ "$DESELECT" -eq 1  ]; then
-    pacman -S plasma-desktop sddm plasma-nm plasma-pa dolphin kdeplasma-addons plasma xdg-user-dirs packagekit-qt5
+    pacman -S plasma-desktop sddm plasma-nm plasma-pa dolphin kdeplasma-addons plasma packagekit-qt5
     systemctl enable sddm
     elif [ "$DESELECT" -eq 2 ]; then
-    pacman -S gnome
+    pacman -S gnome 
     systemctl enable gdm.service
     elif [ "$DESELECT" -eq 3 ]; then
     pacman -S xfce4 xfce4-goodies lightdm lightdm-gtk-greeter
